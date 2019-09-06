@@ -16,7 +16,7 @@ while(y < 10){
     println(s"y is currently $y")
     println(s"y is still less then 10, add 1 to y")
     y = y+1
-    if(y==3) break 
+    if(y==3)break 
 
 }
 println("###########")
@@ -42,6 +42,8 @@ def greetName(name:String): String={
 val fullgreet = greetName("Christian")
 println(fullgreet)
 
+
+//evalua si el numero es primo, si es primo regresa verdadero
 def isPrime(num:Int): Boolean = {
     for(n <- Range(2, num)){
         if(num%n == 0){
@@ -54,6 +56,8 @@ def isPrime(num:Int): Boolean = {
 println(isPrime(10))
 println(isPrime(23))
 
+
+//manda lista de enteros
 val numbers = List(1,2,3,7)
 
 def check(nums:List[Int]): List[Int]={
