@@ -48,36 +48,29 @@ object Examen {
 }
 
 */
-object Solution {
+object Examen {
 
     def main(args: Array[String]) {
-       
-        var n = 4
-        
-        var score = new Array[Int](4);
-        score(0) = 25
-        score(1) = 24
-        score(2) = 26
-        score(3) = 27
-
-        for(score_i <- 0 to n) {
-           score(score_i)
+        val ingresa = new java.util.Scanner (System.in);
+	    //println("Ingrese numero de juegos")
+        var n = ingresa.nextInt();
+        var puntos = new Array[Int](n);
+        for(i <- 0 to n-1) {
+           puntos(i) = ingresa.nextInt();
         }
-        var min = score(0)
-        var minCount = 0;
-        var max = score(0)
-        var maxCount = 0;
-        for (s <- score) {
-            if(s<min) {
-                min = s
-                minCount+=1
-            } else if(s>max) {
-                max = s
-                maxCount+=1
+        var puntosmin = puntos(0)
+        var contadormin = 0;
+        var puntosmax = puntos(0)
+        var contadormax = 0;
+        for (s <- puntos) {
+            if(s<puntosmin) {
+                puntosmin = s
+                contadormin+=1
+            } else if(s>puntosmax) {
+                puntosmax = s
+                contadormax+=1
             }
         }
-        println(s"$maxCount" + " " + s"$minCount")
+        println(contadormax + " " + contadormin)
     }
-    
 }
-
