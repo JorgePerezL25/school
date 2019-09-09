@@ -1,4 +1,4 @@
-/ 1. Crea una lista llamada "lista" con los elementos "rojo", "blanco", "negro"
+// 1. Crea una lista llamada "lista" con los elementos "rojo", "blanco", "negro"
 
 import scala.collection.mutable.ListBuffer
 var lista = collection.mutable.ListBuffer("rojo","blanco","negro")
@@ -18,7 +18,7 @@ var arrayrang = Array(1,1000,5)
 
 
 // 5. Cuales son los elementos únicos de la lista Lista(1,3,3,4,6,7,3,7) utilice conversión a conjuntos // La función (toSet) nos muestra datos no repetidos o
-duplicados
+//duplicados
 var lista = List(1,3,3,4,6,7,3,7)
 var unique = lista.toSet
 println(unique)
