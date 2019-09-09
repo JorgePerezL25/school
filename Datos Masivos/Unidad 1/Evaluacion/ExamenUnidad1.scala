@@ -1,25 +1,25 @@
-object Solution {
+object Examen {
 
     def main(args: Array[String]) {
-        val sc = new java.util.Scanner (System.in);
-        var n = sc.nextInt();
-        var score = new Array[Int](n);
+        val ingresa = new java.util.Scanner (System.in);
+        var n = ingresa.nextInt();
+        var puntos = new Array[Int](n);
         for(i <- 0 to n-1) {
-           score(i) = sc.nextInt();
+           puntos(i) = ingresa.nextInt();
         }
-        var min = score(0)
-        var minCount = 0;
-        var max = score(0)
-        var maxCount = 0;
-        for (s <- score) {
-            if(s<min) {
-                min = s
-                minCount+=1
-            } else if(s>max) {
-                max = s
-                maxCount+=1
+        var puntosmin = puntos(0)
+        var contadormin = 0;
+        var puntosmax = puntos(0)
+        var contadormax = 0;
+        for (s <- puntos) {
+            if(s<puntosmin) {
+                puntosmin = s
+                contadormin+=1
+            } else if(s>puntosmax) {
+                puntosmax = s
+                contadormax+=1
             }
         }
-        println(maxCount + " " + minCount)
+        println(contadormax + " " + contadormin)
     }
 }
