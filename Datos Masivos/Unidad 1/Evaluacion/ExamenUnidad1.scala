@@ -1,7 +1,7 @@
 object Solution {
 
     def main(args: Array[String]) {
-       // val sc = new java.util.Scanner (System.in);
+     
         var n = 10
         
         var score = new Array[Int](4);
