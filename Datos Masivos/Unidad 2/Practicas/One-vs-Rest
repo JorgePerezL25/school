@@ -2,7 +2,7 @@ import org.apache.spark.ml.classification.{LogisticRegression, OneVsRest}
 import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
 
 // load data file.
-val inputData = spark.read.format("libsvm").load("data/sample_multiclass_classification_data.txt")
+val inputData = spark.read.format("libsvm").load("Data/sample_multiclass_classification_data.txt")
 
 // genera la división tren / prueba.
 val Array(train, test) = inputData.randomSplit(Array(0.8, 0.2))
