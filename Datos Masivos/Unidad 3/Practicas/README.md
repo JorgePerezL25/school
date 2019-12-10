@@ -7,7 +7,7 @@
    * [Contenido](#Contenido)
 <!--te-->
 
-### Practica 1 K-means 
+## Practica 1 K-means 
 
 #### Start a Spark Session
 ```scala 
