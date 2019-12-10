@@ -4,6 +4,7 @@
 <!--ts-->
    * [Practicas](#Practicas)
       * [Practica 1 K-Means](#practica-1-k-means)
+      * [Practica 2 Regresion Logistica](#practica-2-regresion-logistica)
    * [Contenido](#Contenido)
 <!--te-->
 
@@ -48,13 +49,11 @@ println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
 ```
 
-```sh 
-//////////////////////////////////////////////
-// Proyecto de regresion logistica //////////////
-////////////////////////////////////////////
+ 
+## Practica 2 Regresion Logistica
 
-//  In this project we will be working with a fake advertising data set, indicating whether or not a particular internet user clicked on an Advertisement. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user.
-//  This data set contains the following features:
+### In this project we will be working with a fake advertising data set, indicating whether or not a particular internet user clicked on an Advertisement. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user.
+    This data set contains the following features:
 //    'Daily Time Spent on Site': consumer time on site in minutes
 //    'Age': cutomer age in years
 //    'Area Income': Avg. Income of geographical area of consumer
