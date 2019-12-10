@@ -1,21 +1,21 @@
 # Kmeans Exam
-#### importar una simple sesion spark
+#### Importar una simple sesion spark
 ```scala
 import org.apache.spark.sql.SparkSession
 ```
 
-#### utilice las lineas de codigo para minizar errores
+#### Utilice las lineas de codigo para minizar errores
 
 ```scala
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
 ```
-#### cree una instancia de la session spark
+#### Cree una instancia de la session spark
 
 ```scala
 val spark = SparkSession.builder().getOrCreate()
 ```
-#### importar la libreria de kmeans para el algoritmo de agrupamiento
+#### Importar la libreria de kmeans para el algoritmo de agrupamiento
 
 ```scala
 import org.apache.spark.ml.clustering.KMeans
@@ -55,7 +55,7 @@ val model = kmeans.fit(training_data)
 #### Evalue los grupos utilizando????
 
 
-#### cuales son los nombres de las columnas?
+#### Cuales son los nombres de las columnas?
 ```scala
 feature_data.printSchema()
 ```
