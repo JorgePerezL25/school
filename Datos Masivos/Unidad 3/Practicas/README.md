@@ -1,4 +1,10 @@
-# Practicas 
+# Practicas
+
+# Contenido
+<!--ts-->
+   * [Practicas](#Practicas)
+   * [Contenido](#Contenido)
+<!--te-->
 
 ### Practica 1 K-means 
 
