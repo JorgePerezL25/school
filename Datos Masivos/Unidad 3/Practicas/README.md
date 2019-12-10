@@ -72,8 +72,7 @@ model.clusterCenters.foreach(println)
 
 + #### Complete las siguientes tareas que estan comentas
 
-  - ##### Tome los datos Importe una  SparkSession con la libreria Logistic Regression 
-  Optional: Utilizar el codigo de  Error reporting
+  - ##### Tome los datos Importe una  SparkSession con la libreria Logistic Regression *Optional: Utilizar el codigo de  Error reporting
 
   - ##### Cree un sesion Spark 
 
@@ -86,7 +85,7 @@ model.clusterCenters.foreach(println)
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.sql.SparkSession
 ```
-##### Declaramos funcion para reportar erres
+##### Declaramos funcion para reportar errores
 ```scala
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
@@ -106,8 +105,9 @@ val data  = spark.read.option("header","true").option("inferSchema", "true").for
 ```scala 
 data.printSchema()
 ```
-
-### Despliegue los datos
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++ ### Despliegue los datos
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 ###### Imprima un renglon de ejemplo 
 
@@ -116,9 +116,11 @@ data.printSchema()
 data.head(1)
 ```
 ##### La variable colnames contendra  un arreglo de string la informacion de la primera columna.
+```scala
 val colnames = data.columns
-
-////variable fristrow contendra la primera columna de datos
+```
+##### variable firstrow contendra la primera columna de datos
+```scala 
 val firstrow = data.head(1)(0)
 println("\n")
 println("Example data row")
@@ -127,92 +129,94 @@ for(ind <- Range(1, colnames.length)){
     println(firstrow(ind))
     println("\n")
 }
+```
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++ ### Preparar el DataFrame para Machine Learning
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-////////////////////////////////////////////////////
-//// Preparar el DataFrame para Machine Learning ////
-//////////////////////////////////////////////////
-
-//   Hacer lo siguiente:
-//    - Renombre la columna "Clicked on Ad" a "label"
-//    - Tome la siguientes columnas como features "Daily Time Spent on Site","Age","Area Income","Daily Internet Usage","Timestamp","Male"
+##### Hacer lo siguiente:
+  -###### Renombre la columna "Clicked on Ad" a "label"
+  -###### Tome la siguientes columnas como features "Daily Time Spent on Site","Age","Area Income","Daily Internet Usage","Timestamp","Male"
 
 
-//    - Cree una nueva clolumna llamada "Hour" del Timestamp conteniendo la  "Hour of the click"
+##### Cree una nueva clolumna llamada "Hour" del Timestamp conteniendo la  "Hour of the click"
+```scala
 val timedata = data.withColumn("Hour",hour(data("Timestamp")))
-
-//    - Renombre la columna "Clicked on Ad" a "label"
+```
+##### Renombre la columna "Clicked on Ad" a "label"
+```scala
 val logregdata = timedata.select(data("Clicked on Ad").as("label"), $"Daily Time Spent on Site", $"Age", $"Area Income", $"Daily Internet Usage", $"Hour", $"Male")
-// Importe VectorAssembler y Vectors
-
-// Cree un nuevo objecto VectorAssembler llamado assembler para los feature
+```
+##### Importe VectorAssembler y Vectors
+##### Cree un nuevo objecto VectorAssembler llamado assembler para los feature
+```scala
 import org.apache.spark.ml.feature.VectorAssembler
 import org.apache.spark.ml.linalg.Vectors
+```
 
-
-//creamos un objeto vector aseembler para que features tenga las caracteristicas que le indiquemos de las columnas indicadas
+##### Creamos un objeto vector aseembler para que features tenga las caracteristicas que le indiquemos de las columnas indicadas
+```scala
 val assembler = (new VectorAssembler()
                   .setInputCols(Array("Daily Time Spent on Site", "Age","Area Income","Daily Internet Usage","Hour","Male"))
                   .setOutputCol("features"))
+```
 
-
-
-// Utilice randomSplit para crear datos de train y test divididos en 70/30 en 5 semillas
+##### Utilice randomSplit para crear datos de train y test divididos en 70/30 en 5 semillas
+```scala 
 val Array(training, test) = logregdata.randomSplit(Array(0.7, 0.3), seed = 12345)
+```
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++ ### Configure un Pipeline 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///////////////////////////////
-// Configure un Pipeline ///////
-/////////////////////////////
-
-// Importe  Pipeline
-
-
-
-
-
-// Tome los Resultados en el conjuto Test con transform
-
+##### Importe  Pipeline Tome los Resultados en el conjuto Test con transform
+```scala 
 import org.apache.spark.ml.Pipeline
+```
 
-// Cree un nuevo objeto de  LogisticRegression llamado lr
+##### Cree un nuevo objeto de  LogisticRegression llamado lr
+```scala
 val lr = new LogisticRegression()
+```
 
-
-// Cree un nuevo  pipeline con los elementos: assembler, lr
+##### Cree un nuevo  pipeline con los elementos: assembler, lr
+```scala
 val pipeline = new Pipeline().setStages(Array(assembler, lr))
+```
 
-
-// Ajuste (fit) el pipeline para el conjunto de training.
+##### Ajuste (fit) el pipeline para el conjunto de training.
+```scala
 val model = pipeline.fit(training)
-
 val results = model.transform(test)
+```
 
-////////////////////////////////////
-//// Evaluacion del modelo /////////////
-//////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
++ ### Evaluacion del modelo 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-// Para Metrics y Evaluation importe MulticlassMetrics
+##### Para Metrics y Evaluation importe MulticlassMetrics. Inicialice un objeto MulticlassMetrics Imprima la  Confusion matrix importar libreria de multiclassmetrics
 
-
-
-// Inicialice un objeto MulticlassMetrics 
-
-// Imprima la  Confusion matrix
-
-//importar libreria de multiclassmetrics
+```scala
 import org.apache.spark.mllib.evaluation.MulticlassMetrics
+```
 
-// se connviertes los resutalos de prueba (test) en RDD utilizando .as y .rdd
+##### Se connviertes los resutalos de prueba (test) en RDD utilizando .as y .rdd
+```scala
 val predictionAndLabels = results.select($"prediction",$"label").as[(Double, Double)].rdd
-
-//se declara el objeto metrics para utilizar el parametro predictionandlabels de multiclassmetrics
+```
+##### Se declara el objeto metrics para utilizar el parametro predictionandlabels de multiclassmetrics
+```scala
 val metrics = new MulticlassMetrics(predictionAndLabels)
-
-//se imprimen matriz
+```
+##### Se imprimen matriz
+```scala
 println("Confusion matrix:")
 println(metrics.confusionMatrix)
-
-//imprimos la prediccion 
+```
+##### Imprir la prediccion 
+```scala
 metrics.accuracy
+```
