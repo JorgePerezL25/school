@@ -8,7 +8,7 @@
    * [Contenido](#Contenido)
 <!--te-->
 
-=====
+--------------------------------------------------------------------------------------------------------------------------------
 ## Practica 1 K-means 
 
 #### Start a Spark Session
@@ -50,11 +50,13 @@ println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
 
 ```
+
+--------------------------------------------------------------------------------------------------------------------------------
 ## Practica 2 Regresion Logistica
 
 
 #### In this project we will be working with a fake advertising data set, indicating whether or not a particular internet user clicked on an Advertisement. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user. This data set contains the following features:
-``` scala 
+``` sh 
 'Daily Time Spent on Site': consumer time on site in minutes
 'Age': cutomer age in years
 'Area Income': Avg. Income of geographical area of consumer
@@ -67,55 +69,53 @@ model.clusterCenters.foreach(println)
 'Clicked on Ad': 0 or 1 indicated clicking on Ad
 ```
 
-//////////////////////////////////////////////////////////
-// Complete las siguientes tareas que estan comentas ////
-/////////////////////////////////////////////////////////
-```
 
++ #### Complete las siguientes tareas que estan comentas
 
-////////////////////////
-/// Tome los datos //////
-//////////////////////
+  - ##### Tome los datos Importe una  SparkSession con la libreria Logistic Regression 
+  Optional: Utilizar el codigo de  Error reporting
 
-// Importe una  SparkSession con la libreria Logistic Regression
+  - ##### Cree un sesion Spark 
 
-// Optional: Utilizar el codigo de  Error reporting
+  - ##### Utilice Spark para leer el archivo csv Advertising.
 
-// Cree un sesion Spark 
+  - ##### Imprima el Schema del DataFrame
 
-// Utilice Spark para leer el archivo csv Advertising.
-
-// Imprima el Schema del DataFrame
-
-//importar librerias de spark y metodos de clasificacionn de logistic regression
+  - ##### importar librerias de spark y metodos de clasificacionn de logistic regression
+```scala 
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.sql.SparkSession
-
-//declaramos funcion para reportar erres
+```
+##### Declaramos funcion para reportar erres
+```scala
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
-
-//iniciamos sesion de spark
+```
+##### Iniciamos sesion de spark
+```scala 
 val spark = SparkSession.builder().getOrCreate()
+```
 
-//utilizamos dataframes para leer el archivo
+##### Utilizamos dataframes para leer el archivo
+
+```scala
 val data  = spark.read.option("header","true").option("inferSchema", "true").format("csv").load("advertising.csv")
+```
 
-
-//imprimimos el esquema del dataframe 
+##### imprimimos el esquema del dataframe 
+```scala 
 data.printSchema()
+```
 
+### Despliegue los datos
 
-///////////////////////
-/// Despliegue los datos /////
-/////////////////////
+###### Imprima un renglon de ejemplo 
 
-// Imprima un renglon de ejemplo 
-
-//imprime el head del dataframe
+##### Imprime el head del dataframe
+```scala
 data.head(1)
-
-// la variable colnames contendra  un arreglo de string la informacion de la primera columna.
+```
+##### La variable colnames contendra  un arreglo de string la informacion de la primera columna.
 val colnames = data.columns
 
 ////variable fristrow contendra la primera columna de datos
