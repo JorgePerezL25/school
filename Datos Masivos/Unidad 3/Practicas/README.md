@@ -1,6 +1,8 @@
 # Practicas 
 
-// Start a Spark Session
+### Practica 1 K-means 
+
+##### Start a Spark Session
 import org.apache.spark.sql.SparkSession
 
 // Optional: Use the following code below to set the Error reporting
