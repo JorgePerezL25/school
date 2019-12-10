@@ -31,17 +31,17 @@ val kmeans = new KMeans().setK(2).setSeed(1L)
 val model = kmeans.fit(dataset)
 ```
 #### Evaluate clustering by computing Within Set Sum of Squared Errors.
-```sh
+```scala
 val WSSSE = model.computeCost(dataset)
 println(s"Within Set Sum of Squared Errors = $WSSSE")
 ```
-// Shows the result.
+### Shows the result.
+```scala
 println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
-
-
 ```
 
+```sh 
 //////////////////////////////////////////////
 // Proyecto de regresion logistica //////////////
 ////////////////////////////////////////////
@@ -62,7 +62,7 @@ model.clusterCenters.foreach(println)
 //////////////////////////////////////////////////////////
 // Complete las siguientes tareas que estan comentas ////
 /////////////////////////////////////////////////////////
-
+```
 
 
 ////////////////////////
