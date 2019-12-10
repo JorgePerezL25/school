@@ -1,13 +1,14 @@
-# Practicas
+# Practicas Unidad 3
 
 # Contenido
 <!--ts-->
-   * [Practicas](#Practicas)
+   * [Practicas](#practicas-unidad-3)
       * [Practica 1 K-Means](#practica-1-k-means)
       * [Practica 2 Regresion Logistica](#practica-2-regresion-logistica)
    * [Contenido](#Contenido)
 <!--te-->
 
+=====
 ## Practica 1 K-means 
 
 #### Start a Spark Session
@@ -48,8 +49,9 @@ println(s"Within Set Sum of Squared Errors = $WSSSE")
 println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
 ```
+=====
 
- 
+===== 
 ## Practica 2 Regresion Logistica
 
 ### In this project we will be working with a fake advertising data set, indicating whether or not a particular internet user clicked on an Advertisement. We will try to create a model that will predict whether or not they will click on an ad based off the features of that user.
