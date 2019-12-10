@@ -1,9 +1,9 @@
 # Kmeans 
 //importar una simple sesion spark
-
+```scala
 import org.apache.spark.sql.SparkSession
-
 //utilice las lineas de codigo para minizar errores
+
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
 
@@ -40,3 +40,4 @@ val model = kmeans.fit(training_data)
 
 //cuales son los nombres de las columnas?
 feature_data.printSchema()
+```
