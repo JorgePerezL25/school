@@ -2,8 +2,8 @@
 
 ### Practica 1 K-means 
 
-##### Start a Spark Session
-import org.apache.spark.sql.SparkSession
+#### Start a Spark Session
+```scala import org.apache.spark.sql.SparkSession
 
 // Optional: Use the following code below to set the Error reporting
 import org.apache.log4j._
@@ -32,7 +32,7 @@ println("Cluster Centers: ")
 model.clusterCenters.foreach(println)
 
 
-
+```
 
 //////////////////////////////////////////////
 // Proyecto de regresion logistica //////////////
