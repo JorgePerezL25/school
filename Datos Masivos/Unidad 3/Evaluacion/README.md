@@ -6,16 +6,19 @@ import org.apache.spark.sql.SparkSession
 
 //utilice las lineas de codigo para minizar errores
 
-```scalaimport org.apache.log4j._
+```scala
+import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
 ```
 //cree una instancia de la session spark
 
-```scalaval spark = SparkSession.builder().getOrCreate()
+```scala
+val spark = SparkSession.builder().getOrCreate()
 ```
 //importar la libreria de kmeans para el algoritmo de agrupamiento
 
-```scalaimport org.apache.spark.ml.clustering.KMeans
+```scala
+import org.apache.spark.ml.clustering.KMeans
 ```
 //carga el dataset de wholesale customers data
 ```scala
