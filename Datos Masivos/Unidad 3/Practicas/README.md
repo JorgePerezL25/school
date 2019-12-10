@@ -3,6 +3,7 @@
 # Contenido
 <!--ts-->
    * [Practicas](#Practicas)
+      * [Practica 1 K-means](#Practica 1 K-means)
    * [Contenido](#Contenido)
 <!--te-->
 
