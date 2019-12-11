@@ -111,12 +111,12 @@ predictions.select("prediction", "label", "features").show(5)
 
 
 
-
+```scala
 import org.apache.spark.ml.classification.LogisticRegression
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.ml.feature.{VectorAssembler, StringIndexer, VectorIndexer, OneHotEncoder}
 import org.apache.spark.ml.linalg.Vectors
 import org.apache.spark.sql.SparkSession
-
+```
 
     
