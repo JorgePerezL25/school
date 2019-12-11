@@ -53,7 +53,6 @@ import org.apache.spark.mllib.evaluation.MulticlassMetrics
 
 #### Loading the datasets and transforming the columns data
 
-``scala
 ###### Minimiza los erorres mostrados
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
