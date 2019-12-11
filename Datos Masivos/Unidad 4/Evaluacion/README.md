@@ -54,9 +54,10 @@ import org.apache.spark.mllib.evaluation.MulticlassMetrics
 #### Loading the datasets and transforming the columns data
 
 ###### Minimiza los erorres mostrados
+```scala
 import org.apache.log4j._
 Logger.getLogger("org").setLevel(Level.ERROR)
-
+```
 ###### Se inicia una sesion en spark
 ```scala 
 val spark = SparkSession.builder().getOrCreate()
