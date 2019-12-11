@@ -230,3 +230,8 @@ println(s"Test set accuracy Multilayer Perceptron = ${evaluator.evaluate(predict
 |9(0.65 & 0.35) | 0.881183773277321 | 0.118816226722679 |  8   |
 |10(0.65 & 0.35)| 0.881183773277321 | 0.118816226722679 |  8   |
 | Promedio      | 0.880712863279143 | 0.119287136720857 |  8.4 |
+
+
+# Conclusion
+
+###### After using these 3 algorithms we can conclude that the most optimal for test data and time Decision Tree, the accuracy was higher on all of the 10 tries and the time of execution was minimum even do the amount of data was the same in all 3 algorithms
