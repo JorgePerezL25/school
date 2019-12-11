@@ -103,4 +103,20 @@ val predictions = model.transform(testData)
 predictions.select("prediction", "label", "features").show(5)
 
 
+
+
+
+
+
+
+
+
+
+import org.apache.spark.ml.classification.LogisticRegression
+import org.apache.spark.sql.SparkSession
+import org.apache.spark.ml.feature.{VectorAssembler, StringIndexer, VectorIndexer, OneHotEncoder}
+import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.sql.SparkSession
+
+
     
