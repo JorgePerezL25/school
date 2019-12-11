@@ -141,6 +141,11 @@ val evaluator = new MulticlassClassificationEvaluator().setMetricName("accuracy"
 
 // Se imprime el resultado de la presicion
 println(s"Test set accuracy = ${evaluator.evaluate(predictionAndLabels)}")
+import org.apache.spark.ml.classification.MultilayerPerceptronClassifier
+import org.apache.spark.ml.evaluation.MulticlassClassificationEvaluator
+import org.apache.spark.ml.feature.{VectorAssembler, StringIndexer, VectorIndexer, OneHotEncoder}
+import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.sql.SparkSession
 
 
 ```
